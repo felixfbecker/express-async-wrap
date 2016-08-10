@@ -19,7 +19,7 @@ describe('express-async-wrap', function() {
         results.push(makeResult(`test${i}`));
       }
 
-      res.send((await* results).join());
+      res.send((await Promise.all(results)).join());
     }));
 
     request(app)
